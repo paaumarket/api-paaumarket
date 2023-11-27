@@ -21,6 +21,10 @@ services:
     environment:
       PORT: 5000
       MONGODB_URI: mongodb://mongo_db:27017/paaumarket
+      JWT_SECRET: "66ad0476-eb0f-4371-920b-0dc96b80441f"
+      CLOUDINARY_COULDNAME: dsdvygpru
+      CLOUDINARY_API_KEY: "389316621866671"
+      CLOUDINARY_API_SECRET: Cq5lFENcKtgMDMTO6XR3x_8lO6s
     depends_on:
       - mongo_db
 
