@@ -6,7 +6,7 @@ const term = Terminal.terminal;
 const connectDB = async function () {
   try {
     await mongoose.connect(process.env.MONGODB_URI);
-    term.bold("Database connected");
+    term.bold("Database connected\n");
   } catch (error) {
     console.log(error.message);
   }

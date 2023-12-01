@@ -5,6 +5,7 @@ import Terminal from "terminal-kit";
 import { connectDB } from "./config/db.js";
 
 import userRoutes from "./routes/userRoute.js";
+import waitlistRoute from "./routes/waitlistRoute.js";
 
 // initialize app
 const app = express();
@@ -20,6 +21,7 @@ app.use(express.json());
 
 // end-points
 app.use("/api/user/", userRoutes);
+app.use("/api/", waitlistRoute)
 
 // Start Express Server
 app.listen(process.env.PORT, () => {
