@@ -14,7 +14,13 @@ dotenv.config();
 connectDB();
 
 // middlewares
-app.use(cors());
+app.use(
+  cors({
+    origin: "*",
+    methods: ["GET,HEAD,PUT,PATCH,POST,DELETE"],
+    optionsSuccessStatus: 200,
+  })
+);
 app.use(express.json());
 
 // end-points
