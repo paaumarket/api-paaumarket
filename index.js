@@ -16,9 +16,8 @@ connectDB();
 // middlewares
 app.use(
   cors({
-    origin: true,
-    methods: ["GET,HEAD,PUT,PATCH,POST,DELETE"],
-    optionsSuccessStatus: 200,
+    origin: "*",
+    methods: ["GET", "POST", "DELETE", "UPDATE", "PUT", "PATCH"],
   })
 );
 app.use(express.json());
