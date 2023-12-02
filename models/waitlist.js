@@ -1,9 +1,12 @@
-import mongoose from "mongoose";
+const mongoose = require("mongoose");
 
-const waitlistSchema = mongoose.Schema({
-    email: {type: String, unique: true},
-},{timestamps: true},)
+const waitlistSchema = mongoose.Schema(
+  {
+    email: { type: String, unique: true },
+  },
+  { timestamps: true }
+);
 
-const Waitlist = mongoose.model("Waitlist", waitlistSchema)
+const Waitlist = mongoose.model("Waitlist", waitlistSchema);
 
-export default Waitlist;
+module.exports = Waitlist;

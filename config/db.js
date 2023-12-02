@@ -1,5 +1,5 @@
-import mongoose from "mongoose";
-import Terminal from "terminal-kit";
+const mongoose = require("mongoose");
+const Terminal = require("terminal-kit");
 
 const term = Terminal.terminal;
 
@@ -12,4 +12,4 @@ const connectDB = async function () {
   }
 };
 
-export { connectDB };
+module.exports = { connectDB };

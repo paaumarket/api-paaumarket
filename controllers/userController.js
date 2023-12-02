@@ -1,8 +1,8 @@
-import User from "../models/user.js";
-import jwt from "jsonwebtoken";
-import { hash, compare } from "bcrypt";
-import { cloudinary } from "../config/cloudinary.js";
-import { validationResult } from "express-validator";
+const User = require("../models/user.js");
+const jwt = require("jsonwebtoken");
+const { hash, compare } = require("bcrypt");
+const { cloudinary } = require("../config/cloudinary.js");
+const { validationResult } = require("express-validator");
 
 async function createUser(req, res) {
   try {
@@ -172,4 +172,10 @@ async function getUser(req, res) {
     res.status(500).send({ message: error.message });
   }
 }
-export { createUser, loginUser, updateUser, updateUserPassword, getUser };
+module.exports = {
+  createUser,
+  loginUser,
+  updateUser,
+  updateUserPassword,
+  getUser,
+};

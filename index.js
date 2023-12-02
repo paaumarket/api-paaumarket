@@ -1,11 +1,11 @@
-import express from "express";
-import cors from "cors";
-import * as dotenv from "dotenv";
-import Terminal from "terminal-kit";
-import { connectDB } from "./config/db.js";
+const express = require("express");
+const cors = require("cors");
+const dotenv = require("dotenv");
+const Terminal = require("terminal-kit");
+const { connectDB } = require("./config/db.js");
 
-import userRoutes from "./routes/userRoute.js";
-import waitlistRoute from "./routes/waitlistRoute.js";
+const userRoutes = require("./routes/userRoute.js");
+const waitlistRoute = require("./routes/waitlistRoute.js");
 
 // initialize app
 const app = express();
@@ -21,7 +21,7 @@ app.use(express.json());
 
 // end-points
 app.use("/api/user/", userRoutes);
-app.use("/api/", waitlistRoute)
+app.use("/api/", waitlistRoute);
 
 // Start Express Server
 app.listen(process.env.PORT, () => {
