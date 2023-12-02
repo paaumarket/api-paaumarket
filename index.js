@@ -16,7 +16,7 @@ connectDB();
 // middlewares
 app.use(
   cors({
-    origin: "https://paaumarket.com.ng",
+    origin: true,
     methods: ["GET,HEAD,PUT,PATCH,POST,DELETE"],
     optionsSuccessStatus: 200,
   })
