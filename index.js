@@ -14,10 +14,25 @@ dotenv.config();
 connectDB();
 
 // middlewares
+app.options("*", cors());
 app.use(
   cors({
     origin: "*",
     methods: ["GET", "POST", "DELETE", "UPDATE", "PUT", "PATCH"],
+    allowedHeaders: [
+      "Content-Type",
+      "Authorization",
+      "X-CSRF-Token",
+      "X-Requested-With",
+      "Accept",
+      "Accept-Version",
+      "Content-Length",
+      "Content-MD5",
+      "Date",
+      "X-Api-Version",
+    ],
+    credentials: true,
+    optionsSuccessStatus: 200,
   })
 );
 app.use(express.json());
