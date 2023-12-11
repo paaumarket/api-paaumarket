@@ -26,7 +26,12 @@ const userSchema = new mongoose.Schema(
       default:
         "https://res.cloudinary.com/dvfeybrvk/image/upload/v1682258754/download_pdurif.png",
     },
-    mobileNumber: {
+    whois:{
+      type: String,
+      require: true,
+    }
+    ,
+    mobilePhoneNumber: {
       type: String,
       require: true,
       unique: true,

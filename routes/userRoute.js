@@ -10,7 +10,8 @@ router.post(
   "/register",
   body("email").trim().isEmail().escape(), // Validate req.body data
   body("password").isLength({ min: 8 }).escape(),
-  body("username").escape(),
+  body("mobilePhoneNumber").escape(),
+  body("whois").trim().escape(),
   user.createUser
 );
 

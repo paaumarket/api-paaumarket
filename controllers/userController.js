@@ -6,6 +6,12 @@ const { validationResult } = require("express-validator");
 
 async function createUser(req, res) {
   try {
+    const { whois, email, password, mobilePhoneNumber } = req.body;
+
+    if (!email || !password || !mobilePhoneNumber || !whois) {
+      throw new Error("This field are required");
+    }
+
     const validateErrors = validationResult(req).errors;
 
     validateErrors.forEach((error) => {
@@ -14,26 +20,23 @@ async function createUser(req, res) {
       }
     });
 
-    const { username, email, password } = req.body;
-
-    if (!username || !email || !password) {
-      throw new Error("This field are required");
-    }
 
     const existingUserEmail = await User.findOne({ email });
-    const existingUserUsername = await User.findOne({ username });
+    // const existingUserUsername = await User.findOne({ username });
 
     if (existingUserEmail) {
       throw new Error("User already exist with this email address");
     }
 
+    /*
     if (existingUserUsername) {
       throw new Error("User already exist with this username");
     }
+    */
 
     const hashedPassword = await hash(password, 10);
 
-    const newUser = User({ username, email, password: hashedPassword });
+    const newUser = User({ mobilePhoneNumber, email, password: hashedPassword, whois });
 
     const savedUser = await newUser.save();
 
