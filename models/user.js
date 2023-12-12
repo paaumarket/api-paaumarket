@@ -4,8 +4,8 @@ const userSchema = new mongoose.Schema(
   {
     username: {
       type: String,
-      require: true,
       unique: true,
+      require: true,
     },
     firstname: {
       type: String,
@@ -26,11 +26,10 @@ const userSchema = new mongoose.Schema(
       default:
         "https://res.cloudinary.com/dvfeybrvk/image/upload/v1682258754/download_pdurif.png",
     },
-    whois:{
+    whois: {
       type: String,
       require: true,
-    }
-    ,
+    },
     mobilePhoneNumber: {
       type: String,
       require: true,
